@@ -15,7 +15,7 @@ spec:
         service: backend-user
     spec:
       containers:
-      - image: sudkul/udagram-api-user:v5
+      - image: dapetoo/udagram-api-user:v5
         name: backend-user 
         imagePullPolicy: Always
         ports:

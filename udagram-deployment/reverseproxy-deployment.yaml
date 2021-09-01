@@ -15,7 +15,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: sudkul/reverseproxy:v5
+      - image: dapetoo/reverseproxy:v5
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
