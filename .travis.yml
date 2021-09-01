@@ -30,5 +30,5 @@ after_success:
   - docker push dapetoo/udagram-api-feed:v5
   - docker push dapetoo/udagram-api-user:v5
   - docker push dapetoo/reverseproxy:v5
-  - docker push dapetoo/udagram-frontend:v5
+  - docker push dapetoo/udagram-frontend:v6
 
