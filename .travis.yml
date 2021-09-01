@@ -1,0 +1,34 @@
+language: node_js
+node_js:
+  - 13
+
+services:
+  - docker
+
+# Pre-testing installs
+install:
+  - echo "Pre-testing install - nothing needs to be installed"
+
+# Scripts to be run such as tests
+before_script:
+  - echo "No tests"
+
+script:
+  # These build will happen in the Travis worker node
+  - docker --version # print the version for logging
+  - docker build -t udagram-api-feed ./udagram-api-feed
+  - docker build -t udagram-api-user ./udagram-api-user
+  - docker build -t reverseproxy ./udagram-reverseproxy
+  - docker build -t udagram-frontend ./udagram-frontend
+  - docker tag udagram-api-feed dapetoo/udagram-api-feed:v5
+  - docker tag udagram-api-user dapetoo/udagram-api-user:v5
+  - docker tag reverseproxy dapetoo/reverseproxy:v5
+  - docker tag udagram-frontend dapetoo/udagram-frontend:v5
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push dapetoo/udagram-api-feed:v5
+  - docker push dapetoo/udagram-api-user:v5
+  - docker push dapetoo/reverseproxy:v5
+  - docker push dapetoo/udagram-frontend:v5
+

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  AWS_BUCKET: test-nd9990-dev-wc
+  AWS_PROFILE: nd9990
+  AWS_REGION: us-east-1
+  JWT_SECRET: hello
+  POSTGRES_DB: postgres
+  POSTGRES_HOST: mypostgres-database-1.ch4a9dhlinpw.us-east-1.rds.amazonaws.com
+  URL: http://10.100.25.166:8100  
+metadata:
+  name: env-config
+  
